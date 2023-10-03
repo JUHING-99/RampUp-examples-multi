@@ -40,31 +40,31 @@ let msj ="";
 
     if(fname.length <3|| fname.length > 30){
         console.log("Nombre fuera del tamaño: 3-30"); //también puede ser una alerta, pero no abusar de las alertas!
-        msj+="Nombre fuera del tamaño: 3-30\n";
+        msj+="Nombre fuera del tamaño: 3-30.\n";
     }
     if(lname.length <3|| lname.length > 30){
         console.log("Apellido fuera del tamaño: 3-30");
-        msj+"Apellido fuera del tamaño: 3-30\n";
+        msj+"Apellido fuera del tamaño: 3-30.\n";
     }
 
     if((!email.endsWith(".com") && !email.endsWith(".es")) || !email.includes("@")){
         console.log("Error validación" + email);
-        msj+= "Error validación" + email +"\n";
+        msj+= "Error validación" + email +".\n";
     }
 
     if(tlf.length != 9 && typeof tlf != Number){
         console.log("Error validación" + tlf);
-        msj+= "Error validación" + tlf +"\n";
+        msj+= "Error validación" + tlf +".\n";
     }
 
     if(season ==""){
         console.log("Selecciona alguna estación del año");
-        msj+="Selecciona alguna estación del año \n";
+        msj+="Selecciona alguna estación del año.\n";
     }
 
     if(!spam || !accept){
         console.log("Acepta condiciones o envío de publicidad");
-        msj+="Acepta condiciones o envío de publicidad\n";
+        msj+="Acepta condiciones o envío de publicidad.\n";
     }
 
 
@@ -72,11 +72,13 @@ let msj ="";
     if(msj.length != 0){
         alert(msj); //imprime mensaje final de error
 
-        let parrafo = document.createElement("p");
+        let parrafo = document.createElement("pre");
         let mensaje= document.createTextNode(msj);
+        parrafo.style.color="#DD1C1A";
+        parrafo.style.fontSize ="8px"
         parrafo.appendChild(mensaje);
 
-        document.getElementById("contact").appendChild(parrafo);//dibuja resultado
+        document.getElementById("contact").appendChild(parrafo);//dibuja resultado al final del formulario
     }
 
 })
